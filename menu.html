@@ -1,0 +1,104 @@
+<!DOCTYPE html><html lang="en"><head>
+<meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>FRESH BREAD BY IZA - Menu</title>
+<link rel="stylesheet" href="styles.css">
+<style>
+/* Carrinho aesthetic */
+.cart-bar{position:fixed; top:14px; right:20px; background:var(--black); color:white; padding:10px 18px; border-radius:20px; font-size:0.85rem; font-weight:600; cursor:pointer; z-index:100; box-shadow:0 4px 15px rgba(0,0,0,0.2)}
+.cart-modal{position:fixed; top:0; right:-360px; width:340px; height:100%; background:white; box-shadow:-10px 0 30px rgba(0,0,0,0.1); z-index:200; transition:0.3s; padding:20px; overflow-y:auto; border-radius:18px 0 0 18px}
+.cart-modal.open{right:0}
+.cart-item{display:flex; justify-content:space-between; align-items:center; padding:10px 0; border-bottom:1px solid #eee; font-size:0.85rem}
+.cart-total{font-weight:700; font-size:1.1rem; margin-top:15px; display:flex; justify-content:space-between; border-top:2px solid var(--black); padding-top:10px}
+.btn-add{margin-top:8px; width:100%; padding:8px; border-radius:20px; border:1px solid var(--brown); background:transparent; color:var(--brown); font-weight:600; cursor:pointer; font-size:0.8rem; transition:.2s}
+.btn-add:hover{background:var(--brown); color:white}
+</style>
+</head><body>
+
+<div class="cart-bar" onclick="toggleCart()">🛒 Cart (<span id="cart-count">0</span>) - R<span id="cart-total-mini">0</span></div>
+<div class="cart-modal" id="cartModal">
+<h3 style="font-family:'Cormorant Garamond',serif">Your Cart</h3>
+<div id="cart-items" style="margin-top:15px"><p style="font-size:0.8rem; color:#888">Empty. Add some bread!</p></div>
+<div class="cart-total"><span>Total:</span> <span>R<span id="cart-total">0</span></span></div>
+<a id="whatsappCheckout" href="#" target="_blank" class="btn btn-brown" style="width:100%; text-align:center; margin-top:15px; display:block">Checkout on WhatsApp</a>
+<button onclick="toggleCart()" class="btn btn-line" style="width:100%; margin-top:8px; margin-left:0">Continue Shopping</button>
+<button onclick="clearCart()" style="margin-top:10px; background:none; border:none; color:#888; font-size:0.75rem; cursor:pointer; text-decoration:underline">Clear cart</button>
+</div>
+
+<header>
+<a href="index.html" class="logo-wrap"><img src="logo.png" alt="Logo"><div class="logo-text">FRESH BREAD<br>BY IZA</div></a>
+<nav><ul>
+<li><a href="index.html">Home</a></li>
+<li><a href="about.html">About</a></li>
+<li><a href="menu.html" class="active">Menu</a></li>
+<li><a href="enquiry.html">Enquiry</a></li>
+<li><a href="contact.html">Contact</a></li>
+</ul></nav>
+</header>
+
+<section class="section">
+<h2>Our Menu</h2>
+<p class="sub">Click to add to cart - baked fresh every morning</p>
+<div class="cards">
+<div class="card">
+<img src="Sourdough Loaf.jpg" alt="Sourdough">
+<h3>Sourdough Loaf</h3><p>Classic wild yeast, 750g</p><p><b>R55</b></p>
+<button class="btn-add" onclick="addToCart('Sourdough Loaf', 55)">+ Add to Cart</button>
+</div>
+<div class="card">
+<img src="baguette-stack.jpg" alt="Baguette">
+<h3>Baguette</h3><p>Traditional French, crunchy</p><p><b>R35</b></p>
+<button class="btn-add" onclick="addToCart('Baguette', 35)">+ Add to Cart</button>
+</div>
+<div class="card">
+<img src="croissants.jpg" alt="Croissant">
+<h3>Butter Croissant</h3><p>Hand-laminated, golden</p><p><b>R28</b></p>
+<button class="btn-add" onclick="addToCart('Butter Croissant', 28)">+ Add to Cart</button>
+</div>
+<div class="card">
+<img src="Seeded Loaf.jpg" alt="Seeded">
+<h3>Seeded Loaf</h3><p>Olive & rosemary</p><p><b>R60</b></p>
+<button class="btn-add" onclick="addToCart('Seeded Loaf', 60)">+ Add to Cart</button>
+</div>
+<div class="card">
+<img src="Pain au Chocolat.jpg" alt="Pain">
+<h3>Pain au Chocolat</h3><p>Chocolate filled</p><p><b>R32</b></p>
+<button class="btn-add" onclick="addToCart('Pain au Chocolat', 32)">+ Add to Cart</button>
+</div>
+<div class="card">
+<img src="Ciabatta.jpg" alt="Ciabatta">
+<h3>Ciabatta</h3><p>Italian, light & airy</p><p><b>R40</b></p>
+<button class="btn-add" onclick="addToCart('Ciabatta', 40)">+ Add to Cart</button>
+</div>
+</div>
+</section>
+
+<footer>Cape Town • Cart saves automatically</footer>
+
+<script>
+let cart = JSON.parse(localStorage.getItem('iza_cart')||'[]');
+function addToCart(name, price){
+  let existing = cart.find(i=>i.name===name);
+  if(existing){ existing.qty++ } else { cart.push({name, price, qty:1}) }
+  saveCart(); toggleCart(true);
+}
+function saveCart(){
+  localStorage.setItem('iza_cart', JSON.stringify(cart));
+  let count = cart.reduce((s,i)=>s+i.qty,0);
+  let total = cart.reduce((s,i)=>s+i.price*i.qty,0);
+  document.getElementById('cart-count').innerText=count;
+  document.getElementById('cart-total').innerText=total;
+  document.getElementById('cart-total-mini').innerText=total;
+  let html = cart.length? '' : '<p style="font-size:0.8rem; color:#888">Empty. Add some bread!</p>';
+  cart.forEach((item, idx)=>{
+    html+=`<div class="cart-item"><div><b>${item.name}</b><br>R${item.price} x ${item.qty}</div><div><button onclick="changeQty(${idx},1)" style="border:1px solid #ddd; border-radius:50%; width:22px; height:22px; cursor:pointer">+</button> <button onclick="changeQty(${idx},-1)" style="border:1px solid #ddd; border-radius:50%; width:22px; height:22px; cursor:pointer">-</button></div></div>`
+  });
+  document.getElementById('cart-items').innerHTML=html;
+  let msg = encodeURIComponent(`Hi Iza! I want to order:%0A${cart.map(i=>`- ${i.qty}x ${i.name} = R${i.price*i.qty}`).join('%0A')}%0ATotal: R${total}`);
+  document.getElementById('whatsappCheckout').href=`https://wa.me/27215550123?text=${msg}`;
+}
+function changeQty(i,d){ cart[i].qty+=d; if(cart[i].qty<=0) cart.splice(i,1); saveCart(); }
+function toggleCart(forceOpen){ let m=document.getElementById('cartModal'); if(forceOpen) m.classList.add('open'); else m.classList.toggle('open'); }
+function clearCart(){ cart=[]; saveCart(); }
+saveCart();
+</script>
+</body></html>
