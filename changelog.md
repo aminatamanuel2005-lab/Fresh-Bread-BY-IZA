@@ -30,3 +30,19 @@ All notable changes to this project will be documented in this file.
 ## [Version 1.0] - 01/09/2026 - Initial Draft
 - Created basic HTML structure for 5 pages
 - Added placeholder text and images.
+
+- ## Changelog
+
+### v2.0 - Part 3 Final (19 Oct 2026) - Current
+- ADDED: robots.txt - SEO file to guide search engine crawlers
+- ADDED: sitemap.xml - SEO file listing all 5 pages for Google
+- UPDATED: contact.html - Added Esri Leaflet interactive map with bakery location in Cape Town
+- UPDATED: enquiry.html - Added live AJAX catering calculation (R325 per person)
+- UPDATED: README.md - Added full Harvard references and deployment links
+- FIXED: Deployed all updates to Netlify and GitHub Pages
+
+### v1.0 - Part 2 (Initial Submission)
+- Created 5 core pages: index.html, about.html, menu.html, enquiry.html, contact.html
+- Implemented responsive CSS with Flexbox and Media Queries
+- Added basic form validation
+- Initial deployment to Netlify and GitHub Pages
