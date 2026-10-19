@@ -73,51 +73,81 @@ Lawrence, J., & Tavakol, S. (2007). *Web Design: Introductory*. Cengage Learning
 **Date**: September 2026
 
 
-# FRESH BREAD BY IZA
-## WEDE5020 - WEB DEVELOPMENT INTRODUCTION
-### POE Part 2
+# Fresh Bread By IZA
 
-**Student Name:** Aminata Manuel  
-**Student Number:** ST10529568
-**Institution:** Rosebank College  
-**Year:** 2026
+A responsive, accessible website for a local artisan bakery based in Cape Town, South Africa. Built for the WEDE5020 POE.
+
+**Live Sites:**
+- Netlify: https://famous-puffpuff-bae97d.netlify.app/
+- GitHub Pages: https://aminatamanuel2005-lab.github.io/Fresh-Bread-BY-IZA/
+
+## Project Features
+
+- **5 Core Pages:** Home (index.html), About, Menu, Enquiry, Contact
+- **Responsive Design:** Flexbox & Media Queries (mobile, tablet, desktop)
+- **SEO Optimized:** `robots.txt`, `sitemap.xml`, meta descriptions, semantic HTML
+- **Accessibility:** ARIA labels, alt text, keyboard navigation, form validation
+- **Interactive Features:**
+    - Esri Leaflet Map on Contact page (interactive store location)
+    - AJAX Enquiry Form with live cost calculation (R325 per catering quote)
+    - Shopping cart logic with localStorage
+- **Performance:** Optimized images, lazy loading, external CSS
+
+## Folder Structure
+/Fresh-Bread-BY-IZA
+index.html
+about.html
+menu.html
+enquiry.html
+contact.html
+styles.css
+enquiry.js
+robots.txt
+sitemap.xml
+/images (logo.png, bread images)
+README.md
 
 
-### 1. PROJECT DESCRIPTION
-Website for "Fresh Bread By Iza", an artisan bakery based in Cape Town, South Africa.  
-The site showcases products, bakery story, and contact information with a warm, rustic brand identity.
+## How to Run Locally
+1. Download / Clone the repo
+2. Open `index.html` in any browser
+3. No server needed - pure HTML/CSS/JS
 
-### 2. FEATURES IMPLEMENTED
-- **5 Web Pages:** Home, About, Menu, Enquiry, Contact
-- **External CSS:** Single stylesheet `css/styles.css` linked to all pages
-- **Responsive Design:** Adapts to Desktop, Tablet and Mobile using Media Queries
-- **Typography:** Consistent font family, sizes and line-height across all pages
-- **Layout:** Flexbox and CSS Grid for modern layout structure
-- **Pseudo-classes:** :hover effects on navigation and buttons
-- **Images:** 6 original photos of bakery products and interior
-- **Contact:** Clickable WhatsApp link and embedded Google Maps
+## Changelog
+- v2.0 - Added robots.txt, sitemap.xml, updated contact.html with Esri map, updated enquiry.html calculation
+- v1.0 - Initial release with 5 pages
 
-### 3. TECHNOLOGIES USED
-- HTML5
-- CSS3 - Flexbox, Grid, Media Queries, Variables
-- No JavaScript frameworks used
+## References - FRESH BREAD BY IZA
 
-### 4. HOW TO RUN
-1. Download the project folder
-2. Open `index.html` in any modern browser
+This section lists all sources consulted for code, design and content, as required by IIE academic guidelines.
 
-### 5. REFERENCES
+1.  **HTML & CSS Structure**
+        - MDN Web Docs. (2024). HTML: HyperText Markup Language. Mozilla Developer Network. Available at: https://developer.mozilla.org/en-US/docs/Web/HTML
+        - W3Schools. (2024). HTML Forms and Input Attributes. Available at: https://www.w3schools.com/html/html_forms.asp
+        - W3Schools. (2024). CSS Flexbox Layout. Available at: https://www.w3schools.com/css/css3_flexbox.asp
 
-- **Images**: Owner. (2026) *Original photographs of Fresh Bread By Iza products and interior*. [Unpublished].
+2.  **JavaScript & Interactivity**
+        - MDN Web Docs. (2024). Using Fetch / AJAX for form handling. Available at: https://developer.mozilla.org/en-US/docs/Web/API/Fetch_API
+        - W3Schools. (2024). JavaScript Form Validation. Available at: https://www.w3schools.com/js/js_validation.asp
 
-- **Color Palette**: Adobe. (2025) *Adobe Color*. Available at: https://color.adobe.com (Accessed: 15 September 2026).
-  *Nota: Usei Adobe Color como referência porque você disse "Inspired by brand logo". Se tiver outra fonte me fala*
+3.  **Maps & Location API**
+        - Esri. (2024). Esri Leaflet - An open-source JavaScript library for Esri ArcGIS. Available at: https://developers.arcgis.com/esri-leaflet/
+        - OpenStreetMap Contributors. (2024). OpenStreetMap data for Cape Town. Available at: https://www.openstreetmap.org
 
-- **Maps**: Google. (2026) *Google Maps Embed API*. Available at: https://developers.google.com/maps/documentation/embed (Accessed: 15 September 2026).
+4.  **SEO Implementation**
+        - Google Search Central. (2024). Introduction to robots.txt. Available at: https://developers.google.com/search/docs/crawling-indexing/robots/intro
+        - Google Search Central. (2024). Build and submit a sitemap. Available at: https://developers.google.com/search/docs/crawling-indexing/sitemaps/build-sitemap
+        - Moz. (2024). What is SEO? Search Engine Optimization Guide. Available at: https://moz.com/learn/seo/what-is-seo
 
-- **Web Standards**: World Wide Web Consortium. (2023) *HTML5 Specification*. Available at: https://www.w3.org/TR/html5/ (Accessed: 15 September 2026).
+5.  **Design & Images**
+        - Unsplash. (2024). Royalty-free bakery images used for mockup (bakery-display.jpg, shop-interior.jpg, sourdough images). Available at: https://unsplash.com/s/photos/bakery
+        - Canva. (2024). Logo design inspiration for Fresh Bread By IZA.
 
-- **CSS**: World Wide Web Consortium. (2022) *CSS Flexible Box Layout Module Level 1*. Available at: https://www.w3.org/TR/css-flexbox-1/ (Accessed: 15 September 2026).
+6.  **Deployment**
+        - Netlify Docs. (2024). Deploying a static site by drag and drop. Available at: https://docs.netlify.com/site-deploys/create-deploys/
+        - GitHub Docs. (2024). Configuring a publishing source for GitHub Pages. Available at: https://docs.github.com/en/pages/getting-started-with-github-pages/configuring-a-publishing-source-for-your-github-pages-site
 
-### 6. SUBMISSION NOTES
-This project meets all WEDE5020 Part 2 marking criteria for CSS, Responsive Design and Documentation.
+## Student Details
+- Module: WEDE5020
+- Project: POE - Part 2 & 3
+- Student: Aminata Manuel ST10529568
