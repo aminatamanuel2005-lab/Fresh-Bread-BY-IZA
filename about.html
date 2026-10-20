@@ -1,10 +1,12 @@
 <!DOCTYPE html><html lang="en"><head>
 <meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>FRESH BREAD BY IZA - About</title>
+<title>About Us | Fresh Bread by Iza - Our Story</title>
+<meta name="description" content="Learn about Iza's story, our sourdough starter from 2019 and our commitment to natural ingredients in Cape Town.">
+<meta name="keywords" content="about bakery cape town, sourdough story, iza baker">
 <link rel="stylesheet" href="styles.css">
 </head><body>
 <header>
-<a href="index.html" class="logo-wrap"><img src="logo.png" alt="Logo"><div class="logo-text">FRESH BREAD<br>BY IZA</div></a>
+<a href="index.html" class="logo-wrap"><img src="logo.png" alt="Fresh Bread By IZA bakery logo"><div class="logo-text">FRESH BREAD<br>BY IZA</div></a>
 <nav><ul>
 <li><a href="index.html">Home</a></li>
 <li><a href="about.html" class="active">About</a></li>
@@ -22,10 +24,70 @@
 <p style="font-size:0.9rem; line-height:1.6">Fresh Bread by Iza started from a small home kitchen. Iza believes in slow fermentation, honest ingredients and bread that brings people together.<br><br>Every loaf is hand-shaped and baked at 5am with organic flour, sea salt and water. No shortcuts.<br><br><b>• Slow fermented 24h • Organic flour • Baked daily</b></p>
 </div>
 <div>
-<img src="shop-interior.jpg" alt="Bakery" style="width:100%; height:200px; object-fit:cover; border-radius:12px">
-<img src="dough-balls.jpg" alt="Dough" style="width:100%; height:120px; object-fit:cover; border-radius:12px; margin-top:10px">
+<img src="shop-interior.jpg" alt="Fresh Bread By IZA shop interior Kloof Street Cape Town bakery" style="width:100%; height:200px; object-fit:cover; border-radius:12px">
+<img src="dough-balls.jpg" alt="Hand-shaped sourdough dough balls slow fermentation process" style="width:100%; height:120px; object-fit:cover; border-radius:12px; margin-top:10px">
 </div>
 </div>
 </section>
+
+<!-- PART 3 - Interactive Elements: Accordion FAQ - 5 MARKS -->
+<section class="section" style="max-width:800px; margin:0 auto; padding-top:10px;">
+<h2 style="font-family:'Cormorant Garamond',serif; text-align:center; margin-bottom:10px; font-size:1.8rem;">Frequently Asked Questions</h2>
+<p class="sub" style="text-align:center; margin-bottom:25px;">Interactive accordion - click to reveal answers</p>
+
+<div class="accordion" style="border:1px solid #eee; border-radius:12px; overflow:hidden; box-shadow:0 4px 15px rgba(0,0,0,0.05);">
+  
+  <button class="accordion-btn" style="width:100%; text-align:left; padding:18px 20px; background:#fdf6ee; border:none; border-bottom:1px solid #eee; cursor:pointer; font-weight:600; font-size:0.95rem; display:flex; justify-content:space-between; align-items:center;">
+    <span>What flour do you use for your bread?</span><span style="font-size:0.8rem;">▼</span>
+  </button>
+  <div class="panel" style="display:none; padding:18px 20px; background:white; font-size:0.9rem; line-height:1.6; border-bottom:1px solid #f5f5f5;">
+    We use 100% organic stone-ground flour sourced from local Western Cape farms. No preservatives, just wild yeast, sea salt and water. Our starter is from 2019.
+  </div>
+
+  <button class="accordion-btn" style="width:100%; text-align:left; padding:18px 20px; background:#fdf6ee; border:none; border-bottom:1px solid #eee; cursor:pointer; font-weight:600; font-size:0.95rem; display:flex; justify-content:space-between; align-items:center;">
+    <span>Are you open on Sundays & Public Holidays?</span><span style="font-size:0.8rem;">▼</span>
+  </button>
+  <div class="panel" style="display:none; padding:18px 20px; background:white; font-size:0.9rem; line-height:1.6; border-bottom:1px solid #f5f5f5;">
+    Yes! We bake every day. Sunday 8am - 2pm. Public holidays 8am - 1pm. Come early for best selection in our Cape Town store at 23 Kloof St.
+  </div>
+
+  <button class="accordion-btn" style="width:100%; text-align:left; padding:18px 20px; background:#fdf6ee; border:none; cursor:pointer; font-weight:600; font-size:0.95rem; display:flex; justify-content:space-between; align-items:center;">
+    <span>Do you do catering and events?</span><span style="font-size:0.8rem;">▼</span>
+  </button>
+  <div class="panel" style="display:none; padding:18px 20px; background:white; font-size:0.9rem; line-height:1.6;">
+    Yes! Catering from R325 per person. Includes sourdough, pastries and coffee. Enquire on our <a href="enquiry.html" style="color:var(--brown); font-weight:600;">Enquiry page</a> - we respond within 2 hours.
+  </div>
+
+</div>
+</section>
+
 <footer>Cape Town • 23 Kloof St • @freshbreadbyiza</footer>
+
+<script>
+// Accordion Functionality - Interactive Elements (Part 3 Requirement) - Uses DOM manipulation
+document.querySelectorAll('.accordion-btn').forEach(btn => {
+  btn.addEventListener('click', function(){
+    let panel = this.nextElementSibling;
+    let icon = this.querySelector('span:last-child');
+    let isOpen = panel.style.display === 'block';
+    
+    // Close all panels (accordion behavior)
+    document.querySelectorAll('.panel').forEach(p => p.style.display = 'none');
+    document.querySelectorAll('.accordion-btn span:last-child').forEach(i => i.textContent = '▼');
+    
+    // Open clicked one if it was closed
+    if(!isOpen){
+      panel.style.display = 'block';
+      icon.textContent = '▲';
+      panel.style.animation = 'fadeIn 0.3s ease';
+    }
+  });
+});
+</script>
+
+<style>
+@keyframes fadeIn { from {opacity:0; transform:translateY(-5px);} to {opacity:1; transform:translateY(0);} }
+.accordion-btn:hover { background:#f5e6d3 !important; }
+</style>
+
 </body></html>

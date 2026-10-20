@@ -1,6 +1,8 @@
 <!DOCTYPE html><html lang="en"><head>
 <meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>FRESH BREAD BY IZA - Menu</title>
+<title>Menu | Fresh Bread by Iza - Sourdough, Baguettes & Pastries</title>
+<meta name="description" content="See our full menu: Sourdough Classic R65, Baguettes, Croissant boxes and Seasonal loaves. Baked fresh every morning.">
+<meta name="keywords" content="bread menu, sourdough price, croissant cape town">
 <link rel="stylesheet" href="styles.css">
 <style>
 /* Carrinho aesthetic */
@@ -11,6 +13,15 @@
 .cart-total{font-weight:700; font-size:1.1rem; margin-top:15px; display:flex; justify-content:space-between; border-top:2px solid var(--black); padding-top:10px}
 .btn-add{margin-top:8px; width:100%; padding:8px; border-radius:20px; border:1px solid var(--brown); background:transparent; color:var(--brown); font-weight:600; cursor:pointer; font-size:0.8rem; transition:.2s}
 .btn-add:hover{background:var(--brown); color:white}
+/* SEARCH + LIGHTBOX - NOVO PART 3 */
+.search-wrap{max-width:500px; margin:0 auto 25px auto;}
+#searchInput{width:100%; padding:12px 18px; border:2px solid #d4a574; border-radius:25px; font-size:0.9rem; outline:none;}
+#searchInput:focus{border-color:var(--brown);}
+.lightbox{ display:none; position:fixed; z-index:999; top:0; left:0; width:100%; height:100%; background:rgba(0,0,0,0.85); justify-content:center; align-items:center; cursor:pointer; }
+.lightbox img{ max-width:90%; max-height:85%; border-radius:12px; box-shadow:0 10px 40px rgba(0,0,0,0.5); }
+.lightbox.active{ display:flex; }
+.card img{cursor: zoom-in; transition:0.2s;}
+.card img:hover{transform:scale(1.03);}
 </style>
 </head><body>
 
@@ -25,7 +36,7 @@
 </div>
 
 <header>
-<a href="index.html" class="logo-wrap"><img src="logo.png" alt="Logo"><div class="logo-text">FRESH BREAD<br>BY IZA</div></a>
+<a href="index.html" class="logo-wrap"><img src="logo.png" alt="Fresh Bread By IZA artisan bakery logo Cape Town"><div class="logo-text">FRESH BREAD<br>BY IZA</div></a>
 <nav><ul>
 <li><a href="index.html">Home</a></li>
 <li><a href="about.html">About</a></li>
@@ -37,35 +48,41 @@
 
 <section class="section">
 <h2>Our Menu</h2>
-<p class="sub">Click to add to cart - baked fresh every morning</p>
-<div class="cards">
-<div class="card">
-<img src="sourdough.jpg" alt="Sourdough">
+<p class="sub">Click image to view larger • Click to add to cart - baked fresh every morning</p>
+
+<div class="search-wrap">
+<input type="text" id="searchInput" placeholder="Search bread: sourdough, baguette, croissant, seeded...">
+<p style="font-size:0.75rem; color:#888; text-align:center; margin-top:8px;">Dynamic search - filters products instantly</p>
+</div>
+
+<div class="cards" id="menuGrid">
+<div class="card" data-name="sourdough loaf classic wild yeast">
+<img src="sourdough.jpg" alt="Fresh artisan sourdough bread loaf 750g baked daily Cape Town" onclick="openLightbox(this.src)">
 <h3>Sourdough Loaf</h3><p>Classic wild yeast, 750g</p><p><b>R55</b></p>
 <button class="btn-add" onclick="addToCart('Sourdough', 55)">+ Add to Cart</button>
 </div>
-<div class="card">
-<img src="baguette-stack.jpg" alt="Baguette">
+<div class="card" data-name="baguette french crunchy traditional">
+<img src="baguette-stack.jpg" alt="Traditional French baguette crunchy crust artisan bakery" onclick="openLightbox(this.src)">
 <h3>Baguette</h3><p>Traditional French, crunchy</p><p><b>R35</b></p>
 <button class="btn-add" onclick="addToCart('Baguette', 35)">+ Add to Cart</button>
 </div>
-<div class="card">
-<img src="croissants.jpg" alt="Croissant">
+<div class="card" data-name="butter croissant pastry laminated golden">
+<img src="croissants.jpg" alt="Buttery hand-laminated croissant golden pastry Fresh Bread By IZA" onclick="openLightbox(this.src)">
 <h3>Butter Croissant</h3><p>Hand-laminated, golden</p><p><b>R28</b></p>
 <button class="btn-add" onclick="addToCart('Butter Croissant', 28)">+ Add to Cart</button>
 </div>
-<div class="card">
-<img src="Seeded Loaf.jpg" alt="Seeded">
+<div class="card" data-name="seeded loaf olive rosemary whole grain">
+<img src="Seeded Loaf.jpg" alt="Seeded loaf olive and rosemary whole grain healthy bread" onclick="openLightbox(this.src)">
 <h3>Seeded Loaf</h3><p>Olive & rosemary</p><p><b>R60</b></p>
 <button class="btn-add" onclick="addToCart('Seeded Loaf', 60)">+ Add to Cart</button>
 </div>
-<div class="card">
-<img src="Pain au Chocolat.jpg" alt="Pain">
+<div class="card" data-name="pain au chocolat chocolate filled sweet">
+<img src="Pain au Chocolat.jpg" alt="Pain au chocolat chocolate filled pastry sweet treat" onclick="openLightbox(this.src)">
 <h3>Pain au Chocolat</h3><p>Chocolate filled</p><p><b>R32</b></p>
 <button class="btn-add" onclick="addToCart('Pain au Chocolat', 32)">+ Add to Cart</button>
 </div>
-<div class="card">
-<img src="Ciabatta.jpg" alt="Ciabatta">
+<div class="card" data-name="ciabatta italian light airy">
+<img src="Ciabatta.jpg" alt="Italian ciabatta bread light and airy artisan loaf" onclick="openLightbox(this.src)">
 <h3>Ciabatta</h3><p>Italian, light & airy</p><p><b>R40</b></p>
 <button class="btn-add" onclick="addToCart('Ciabatta', 40)">+ Add to Cart</button>
 </div>
@@ -73,6 +90,11 @@
 </section>
 
 <footer>Cape Town • Cart saves automatically</footer>
+
+<!-- LIGHTBOX MODAL - Part 3 Requirement -->
+<div id="lightbox" class="lightbox" onclick="closeLightbox()">
+  <img id="lightboxImg" src="" alt="Enlarged bakery product view">
+</div>
 
 <script>
 let cart = JSON.parse(localStorage.getItem('iza_cart')||'[]');
@@ -100,5 +122,23 @@ function changeQty(i,d){ cart[i].qty+=d; if(cart[i].qty<=0) cart.splice(i,1); sa
 function toggleCart(forceOpen){ let m=document.getElementById('cartModal'); if(forceOpen) m.classList.add('open'); else m.classList.toggle('open'); }
 function clearCart(){ cart=[]; saveCart(); }
 saveCart();
+
+// --- NOVO PART 3: SEARCH FILTER + LIGHTBOX ---
+// SEARCH FUNCTIONALITY - Dynamic Content
+document.getElementById('searchInput').addEventListener('input', function(e){
+  let search = e.target.value.toLowerCase();
+  document.querySelectorAll('#menuGrid .card').forEach(card => {
+    let name = card.getAttribute('data-name');
+    card.style.display = name.includes(search) ? 'block' : 'none';
+  });
+});
+// LIGHTBOX GALLERY FUNCTIONALITY
+function openLightbox(src){
+  document.getElementById('lightboxImg').src = src;
+  document.getElementById('lightbox').classList.add('active');
+}
+function closeLightbox(){
+  document.getElementById('lightbox').classList.remove('active');
+}
 </script>
 </body></html>
