@@ -11,8 +11,8 @@ The website includes the following 5 HTML pages:
 | Page | File Name | Purpose |
 | --- | --- | --- |
 | Home | `index.html` | Welcome message and summary of bakery services |
-| About | `about.html` | History, mission and values of Fresh Bread By IZA |
-| Menu | `menu.html` | List of artisan breads, cakes, and savory items with prices |
+| About | `about.html` | History, mission and values + FAQ Accordion (Part 3) |
+| Menu | `menu.html` | List of artisan breads with prices + Search + Lightbox + Cart (Part 3) |
 | Enquiry | `enquiry.html` | Contact form for orders, catering and general questions |
 | Contact | `contact.html` | Business hours, baking times, address, map, and contact details |
 
@@ -22,132 +22,69 @@ Additional folders:
 - `/IMAGES` - Contains images used on the website
 
 ## 3. Technologies Used
-- **HTML5**: For semantic structure of the website. Used elements like `<header>`, `<nav>`, `<main>`, `<section>`, and `<footer>` as per W3C standards【W3C, 2024】.
+- **HTML5**: For semantic structure of the website. Used elements like `<header>`, `<nav>`, `<main>`, `<section>`, and `<footer>` as per W3C standards.
 - **CSS3**: For styling, layout, and responsive design. External stylesheet linked to all pages.
+- **JavaScript (ES6)**: For dynamic features - Search Filter, Lightbox Gallery, Accordion FAQ, Shopping Cart with localStorage.
 - **Git & GitHub**: For version control and project submission.
 
 ## 4. Design Principles & Academic References
-The website design follows established web usability and development principles:
+1.  **Usability**: The navigation is consistent across all 5 pages to reduce cognitive load. This follows Nielsen's 10 Usability Heuristics【Nielsen, 2020】.
+2.  **Semantic HTML**: Proper use of semantic tags improves accessibility and SEO【W3C, 2024】.
+3.  **User-Centered Design**: Content is organized based on user needs【Garrett, 2011】.
 
-1.  **Usability**: The navigation is consistent across all 5 pages to reduce cognitive load. This follows Nielsen's 10 Usability Heuristics for User Interface Design【Nielsen, 2020】.
-2.  **Semantic HTML**: Proper use of semantic tags improves accessibility and SEO. As defined by the W3C HTML5 Specification【W3C, 2024】.
-3.  **User-Centered Design**: Content is organized based on user needs - menu, hours, and contact info are easily accessible. This approach is supported by Garrett's Elements of User Experience【Garrett, 2011】.
-4.  **CSS Best Practices**: External CSS file used for separation of content and presentation, following guidelines in Meyer’s CSS: The Definitive Guide【Meyer, 2017】.
+## 5. Project Features (Part 2 & 3)
 
-## 5. Content Sources
-All textual content was sourced from the files in `/CONTENT-RESEARCH`:
-- `ABOUT US.txt`
-- `MENU - FRESH BREADS BY IZA.txt` 
-- `OPENING HOURS.txt`
+- **5 Core Pages:** Home, About, Menu, Enquiry, Contact
+- **Responsive Design:** Flexbox & Media Queries (mobile, tablet, desktop)
+- **SEO Optimized:** `robots.txt`, `sitemap.xml`, meta descriptions, semantic HTML, image alt-text and file naming (Part 3 Requirement)
+- **Accessibility:** ARIA labels, alt text, keyboard navigation, form validation
+- **Interactive Features (Part 3):**
+    - **Search Functionality:** Dynamic search filter on menu.html - filters breads instantly by name (data-name attribute)
+    - **Lightbox Gallery:** Click image to enlarge in modal overlay - improves product viewing
+    - **Accordion FAQ:** Interactive FAQ on about.html using DOM manipulation - click to expand/collapse
+    - **Esri Leaflet Map** on Contact page
+    - **AJAX Enquiry Form** with live cost calculation (R325 per catering quote)
+    - **Shopping cart** logic with localStorage and WhatsApp checkout
 
-## 6. Academic References
-Duckett, J. (2014). *HTML and CSS: Design and Build Websites*. John Wiley & Sons.
+## 6. Changelog
 
-Garrett, J. J. (2011). *The Elements of User Experience: User-Centered Design for the Web and Beyond* (2nd ed.). New Riders.
+### v3.0 - Part 3 Implementation (2026-05-13)
+- **ADDED:** Search functionality on menu.html - JavaScript filter using input event listener and data-name attributes. Allows users to search "sourdough", "baguette", etc.
+- **ADDED:** Lightbox Gallery on menu.html - onclick="openLightbox(this.src)" enlarges bread images in fixed overlay modal. Includes close on click.
+- **ADDED:** Accordion FAQ on about.html - Interactive accordion with 3 FAQs (flour, opening hours, catering). Uses querySelectorAll and class toggling for DOM manipulation.
+- **IMPROVED:** SEO - Updated all image alt-text with descriptive keywords (e.g., "Fresh artisan sourdough bread loaf 750g baked daily Cape Town")
+- **IMPROVED:** File naming - Verified all images use SEO-friendly names
+- **Feedback Changes Implemented:** Added user-requested interactive elements to improve UX based on Part 2 feedback
 
-MDN Web Docs. (2024). *HTML: HyperText Markup Language*. Mozilla. https://developer.mozilla.org/en-US/docs/Web/HTML
+### v2.0 - Part 2 Implementation
+- Added robots.txt, sitemap.xml, updated contact.html with Esri map, updated enquiry.html calculation
 
-MDN Web Docs. (2024). *CSS: Cascading Style Sheets*. Mozilla. https://developer.mozilla.org/en-US/docs/Web/CSS
-
-Meyer, E. A. (2017). *CSS: The Definitive Guide* (4th ed.). O'Reilly Media.
-
-Nielsen, J. (2020). *10 Usability Heuristics for User Interface Design*. Nielsen Norman Group. https://www.nngroup.com/articles/ten-usability-heuristics/
-
-W3C. (2023). *Cascading Style Sheets Level 2 Revision 2 (CSS 2.2) Specification*. World Wide Web Consortium. https://www.w3.org/TR/CSS22/
-
-W3C. (2024). *HTML5 Specification*. World Wide Web Consortium. https://www.w3.org/TR/html5/
-
-Krug, S. (2014). *Don't Make Me Think, Revisited: A Common Sense Approach to Web Usability* (3rd ed.). New Riders.
-
-Lawrence, J., & Tavakol, S. (2007). *Web Design: Introductory*. Cengage Learning.
+### v1.0 - Initial release with 5 pages
 
 ## 7. How to Run
-1.  Clone or download this repository
-2.  Open `index.html` in any modern web browser
-3.  Ensure the `/css/style.css` file is in the correct folder for styling to apply
+1. Clone or download this repository
+2. Open `index.html` in any modern web browser
+3. Ensure the `styles.css` file is in the correct folder
 
-## 8. Author
-**Student Name: Aminata Manuel/ st1052956
-**Course**: Web Development - Part 1  
-**Institution**: Rosebank College  
-**Date**: September 2026
+## 8. References
 
+Duckett, J. (2014). *HTML and CSS: Design and Build Websites*. John Wiley & Sons.
+Garrett, J. J. (2011). *The Elements of User Experience*.
+Meyer, E. A. (2017). *CSS: The Definitive Guide*.
+Nielsen, J. (2020). *10 Usability Heuristics*. Nielsen Norman Group.
+W3C. (2024). *HTML5 Specification*.
 
-# Fresh Bread By IZA
+### Code References for Part 3
+- MDN Web Docs. (2024). *Element.querySelectorAll() and input event*. https://developer.mozilla.org/en-US/docs/Web/API/Document/querySelectorAll
+- W3Schools. (2024). *How TO - Lightbox*. https://www.w3schools.com/howto/howto_js_lightbox.asp
+- W3Schools. (2024). *How TO - Accordion*. https://www.w3schools.com/howto/howto_js_accordion.asp
+- Google Search Central. (2024). *Image SEO - alt text best practices*. https://developers.google.com/search/docs/crawling-indexing/images
 
-A responsive, accessible website for a local artisan bakery based in Cape Town, South Africa. Built for the WEDE5020 POE.
-
+## 9. Author
+**Student Name:** Aminata Manuel / st10529568
+**Course:** WEDE5020 - Web Development POE Part 3
+**Institution:** Rosebank College
+**Date:** 13 May 2026
 **Live Sites:**
 - Netlify: https://famous-puffpuff-bae97d.netlify.app/
 - GitHub Pages: https://aminatamanuel2005-lab.github.io/Fresh-Bread-BY-IZA/
-
-## Project Features
-
-- **5 Core Pages:** Home (index.html), About, Menu, Enquiry, Contact
-- **Responsive Design:** Flexbox & Media Queries (mobile, tablet, desktop)
-- **SEO Optimized:** `robots.txt`, `sitemap.xml`, meta descriptions, semantic HTML
-- **Accessibility:** ARIA labels, alt text, keyboard navigation, form validation
-- **Interactive Features:**
-    - Esri Leaflet Map on Contact page (interactive store location)
-    - AJAX Enquiry Form with live cost calculation (R325 per catering quote)
-    - Shopping cart logic with localStorage
-- **Performance:** Optimized images, lazy loading, external CSS
-
-## Folder Structure
-/Fresh-Bread-BY-IZA
-index.html
-about.html
-menu.html
-enquiry.html
-contact.html
-styles.css
-enquiry.js
-robots.txt
-sitemap.xml
-/images (logo.png, bread images)
-README.md
-
-
-## How to Run Locally
-1. Download / Clone the repo
-2. Open `index.html` in any browser
-3. No server needed - pure HTML/CSS/JS
-
-## Changelog
-- v2.0 - Added robots.txt, sitemap.xml, updated contact.html with Esri map, updated enquiry.html calculation
-- v1.0 - Initial release with 5 pages
-
-## References - FRESH BREAD BY IZA
-
-This section lists all sources consulted for code, design and content, as required by IIE academic guidelines.
-
-1.  **HTML & CSS Structure**
-        - MDN Web Docs. (2024). HTML: HyperText Markup Language. Mozilla Developer Network. Available at: https://developer.mozilla.org/en-US/docs/Web/HTML
-        - W3Schools. (2024). HTML Forms and Input Attributes. Available at: https://www.w3schools.com/html/html_forms.asp
-        - W3Schools. (2024). CSS Flexbox Layout. Available at: https://www.w3schools.com/css/css3_flexbox.asp
-
-2.  **JavaScript & Interactivity**
-        - MDN Web Docs. (2024). Using Fetch / AJAX for form handling. Available at: https://developer.mozilla.org/en-US/docs/Web/API/Fetch_API
-        - W3Schools. (2024). JavaScript Form Validation. Available at: https://www.w3schools.com/js/js_validation.asp
-
-3.  **Maps & Location API**
-        - Esri. (2024). Esri Leaflet - An open-source JavaScript library for Esri ArcGIS. Available at: https://developers.arcgis.com/esri-leaflet/
-        - OpenStreetMap Contributors. (2024). OpenStreetMap data for Cape Town. Available at: https://www.openstreetmap.org
-
-4.  **SEO Implementation**
-        - Google Search Central. (2024). Introduction to robots.txt. Available at: https://developers.google.com/search/docs/crawling-indexing/robots/intro
-        - Google Search Central. (2024). Build and submit a sitemap. Available at: https://developers.google.com/search/docs/crawling-indexing/sitemaps/build-sitemap
-        - Moz. (2024). What is SEO? Search Engine Optimization Guide. Available at: https://moz.com/learn/seo/what-is-seo
-
-5.  **Design & Images**
-        - Unsplash. (2024). Royalty-free bakery images used for mockup (bakery-display.jpg, shop-interior.jpg, sourdough images). Available at: https://unsplash.com/s/photos/bakery
-        - Canva. (2024). Logo design inspiration for Fresh Bread By IZA.
-
-6.  **Deployment**
-        - Netlify Docs. (2024). Deploying a static site by drag and drop. Available at: https://docs.netlify.com/site-deploys/create-deploys/
-        - GitHub Docs. (2024). Configuring a publishing source for GitHub Pages. Available at: https://docs.github.com/en/pages/getting-started-with-github-pages/configuring-a-publishing-source-for-your-github-pages-site
-
-## Student Details
-- Module: WEDE5020
-- Project: POE - Part 2 & 3
-- Student: Aminata Manuel ST10529568
