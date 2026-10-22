@@ -10,7 +10,7 @@
 <style>
 .error{color:#c0392b; font-size:0.8rem; display:block; margin:5px 0 10px;}
 #map{height:350px; width:100%; border-radius:18px; margin:20px 0;}
-#contactForm input, #contactForm select, #contactForm textarea{width:100%; padding:12px; border-radius:12px; border:1px solid #ddd; margin-top:10px; font-family:inherit;}
+#contactForm input, #contactForm select, #contactForm textarea{width:100%; padding:12px; border-radius:12px; border:1px solid #ddd; margin-top:10px; font-family:inherit;} #map{height:400px; width:100%; border-radius:12px; margin:20px 0; display:block; background:#eee;}
 </style>
 </head>
 <body>
@@ -49,9 +49,15 @@
 <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
 <script>
 // LEAFLET MAP - Interactive map requirement
-var map = L.map('map').setView([-33.9249, 18.4241], 15);
-L.tileLayer('https://server.arcgisonline.com/ArcGIS/rest/services/World_Street_Map/MapServer/tile/{z}/{y}/{x}', { attribution: 'Tiles © Esri' }).addTo(map);
+var map = L.map('map').setView([-33.9249, 18.4241], 16);
+L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+    attribution: '© OpenStreetMap | Tiles © Esri',
+    maxZoom: 19
+}).addTo(map);
 L.marker([-33.9249, 18.4241]).addTo(map).bindPopup('<b>Fresh Bread by Iza</b><br>23 Kloof St').openPopup();
+
+// Fix para o mapa cinza
+setTimeout(function(){ map.invalidateSize(); }, 500);
 
 // CONTACT FORM - Validation + AJAX + Email
 document.getElementById('contactForm').addEventListener('submit', function(e){
