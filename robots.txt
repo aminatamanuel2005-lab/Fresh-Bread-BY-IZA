@@ -1,3 +1,4 @@
 User-agent: *
 Allow: /
-Sitemap: https://unrivaled-phoenix-05bb06.netlify.app/sitemap.xml
+
+Sitemap: https://aminatamanuel2005-lab.github.io/Fresh-Bread-BY-IZA/sitemap.xml  
